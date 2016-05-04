@@ -3,12 +3,12 @@
 . ./path.sh
 
 feat_transform=kaldi-data-models/tri3a_dnn/final.feature_transform
-dbn_model=kaldi-data-models/tri3a_dnn/final.nnet
+nnet_model=kaldi-data-models/tri3a_dnn/final.nnet
 dir=data-files
 
 #extract-activity-vectors --S=40 --buffer-index=0 \
 extract-activity-vectors --use-gpu="yes" --S=40 --buffer-index=0 \
-  --feature-transform=$feat_transform $dbn_model \
+  --feature-transform=$feat_transform $nnet_model \
   scp:$dir/dev_feats.scp ark:$dir/dev_0330.monophones.alignment ark,t:activation-vectors.ark || exit 1
 
 
